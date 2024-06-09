@@ -31,13 +31,13 @@ const postSchema = new mongoose.Schema({
         type: String,
         require: true,
         minLength: 4,
-        maxLength: 10
+        maxLength: 30
     },
     body: {
         type: String,
         require: true,
         minLength: 4,
-        maxLength: 10
+        maxLength: 30
     },
     user: {
         type: mongoose.Schema.ObjectId,

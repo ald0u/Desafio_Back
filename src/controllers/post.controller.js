@@ -38,10 +38,10 @@ const deletePostById = async (request, response) => {
         const { id } = request.params;
         const postDeleted = await postUseCase.deleteById(id);
 
-        if (!post) {
+        if (!postDeleted) { // Cambiado de "post" a "postDeleted"
             response.status(404).json({
                 success: false,
-                error: 'post not found'
+                error: 'Post not found' // Cambiado de "post" a "Post"
             });
             return;
         }
@@ -52,12 +52,12 @@ const deletePostById = async (request, response) => {
         });
     } catch (error) {
         response.status(error.status || 500).json({
-            succes: false,
-            data: error.message
-        })
-
+            success: false,
+            error: error.message
+        });
     }
 }
+
 
 /**
  * -----------------------------------------------------------------
