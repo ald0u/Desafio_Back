@@ -22,7 +22,7 @@ const SALT_ROUNDS = 10;
  * @returns {Promise<string>} - La contraseña encriptada
  */
 
-const encrypt = (text) =>  bcrypt.hash(text, SALT_ROUNDS);
+const encrypt = (text) => bcrypt.hash(text, SALT_ROUNDS);
 
 /**
  * --------------------------------------
@@ -33,7 +33,7 @@ const encrypt = (text) =>  bcrypt.hash(text, SALT_ROUNDS);
  * @returns {Promise<boolean>} - True si son iguales, false si son diferentes
  */
 
-const compare = (plainText, hash) =>  bcrypt.compare(plainText, hash);
+const compare = (plainText, hash) => bcrypt.compare(plainText, hash);
 
 /**
  * ------------------------------------------------------

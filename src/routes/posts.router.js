@@ -11,6 +11,7 @@ const postController = require('../controllers/post.controller');
  * Creamos el router de Express
  * --------------------------------------
  */
+
 const router = express.Router();
 
 /**
@@ -35,7 +36,7 @@ router.get('/', postController.getAllPosts);
  * --------------------------------------
  */
 
-router.patch('/', postController.patchPostById);
+router.patch('/:id', postController.patchPostById);
 
 /**
  * --------------------------------------
@@ -43,7 +44,7 @@ router.patch('/', postController.patchPostById);
  * --------------------------------------
  */
 
-router.post('/', postController.deletePostById);
+router.delete('/:id', postController.deletePostById);
 
 /**
  * --------------------------------------
