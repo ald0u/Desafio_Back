@@ -17,13 +17,13 @@ Este es un proyecto de backend desarrollado con Node.js, Express, bcrypt, JWT, h
 3. Crea un archivo .env en la raíz del proyecto y configura las variables de entorno necesarias. Aquí hay un ejemplo:
     
 ## DataBase Acces
--DB_USER=
--DB_PASSWORD=
--DB_HOST=
--DB_NAME=
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+DB_NAME=
 
 ## JWT
--JWT_SECRET=
+JWT_SECRET=
 
 
 ## Ejecución
@@ -40,12 +40,10 @@ Este es un proyecto de backend desarrollado con Node.js, Express, bcrypt, JWT, h
 
 # Dependencias
 
-- bcryptjs: ^2.4.3
-- dotenv: ^16.4.5
-- express: ^4.19.2
-- jsonwebtoken: ^9.0.2
-- mongoose: ^8.4.1
-- nodemon: ^3.1.3
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+DB_NAME=
 
 
  
