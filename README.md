@@ -21,8 +21,6 @@ Este es un proyecto de backend desarrollado con Node.js, Express, bcrypt, JWT, h
     DB_PASSWORD=
     DB_HOST=
     DB_NAME=
-
-    ```bash 
     JWT_SECRET=
 
 
