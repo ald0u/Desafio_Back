@@ -5,6 +5,7 @@
  */
 const express = require('express');
 const postController = require('../controllers/post.controller');
+const auth = require("../middlewares/auth.middleware");
 
 /**
  * --------------------------------------
@@ -20,7 +21,7 @@ const router = express.Router();
  * --------------------------------------
  */
 
-router.post('/', postController.createPost);
+router.post('/', auth, postController.createPost);
 
 /**
  * --------------------------------------
@@ -36,7 +37,7 @@ router.get('/', postController.getAllPosts);
  * --------------------------------------
  */
 
-router.patch('/:id', postController.patchPostById);
+router.patch('/:id', auth, postController.patchPostById);
 
 /**
  * --------------------------------------
@@ -44,7 +45,7 @@ router.patch('/:id', postController.patchPostById);
  * --------------------------------------
  */
 
-router.delete('/:id', postController.deletePostById);
+router.delete('/:id', auth, postController.deletePostById);
 
 /**
  * --------------------------------------

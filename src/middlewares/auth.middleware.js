@@ -4,37 +4,37 @@
  * --------------------------------------
  */
 
-const createError = require('http-errors');
-const jwt = require('../lib/jwt');
-const usersUsecases = require('../usecases/users.usecases');
+const createError = require("http-errors");
+const usersUseCase = require("../usecases/users.usecases");
+const jwt = require("../lib/jwt");
 
 /**
  * --------------------------------------
  * Middleware de autenticación
  * --------------------------------------
  */
-const auth = async (request, response, next) => {
-    try {
-        const authorization = request.headers.authorization;
 
-        if (!authorization) {
-            throw createError(401, 'token required')
+const auth = async (req, res, next) => {
+    try {
+        const token = req.headers.authorization;
+
+        if (!token) {
+            throw createError(401, "JWT is required");
         }
 
         const payload = jwt.verify(token);
-
-        payload.id = await kodersUsecases.getById(payload.id);
-
-        request.user = user;
+        const user = await usersUseCase.getById(payload.id);
+        req.user = user;
+        next();
 
     } catch (error) {
-        response.status(401);
-        response.json({
-            succes: false,
-            error: error.message,
-        })
+        res.status(401);
+        res.json({
+            success: false,
+            error: (error.mesage, 'JWT is required')
+        });
     }
-};
+}
 
 /**
  * --------------------------------------
