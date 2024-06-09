@@ -28,14 +28,7 @@ const url = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
  * --------------------------------------
  */
 
-const connect = async () => {
-    try {
-        await mongoose.connect(url);
-        console.log('Conexión exitosa');
-    } catch (error) {
-        console.error('No se pudo conectar a la BD', error);
-    }
-}
+const connect = () => mongoose.connect(url);
 
 /**
  * --------------------------------------
@@ -43,6 +36,6 @@ const connect = async () => {
  * --------------------------------------
  */
 
-module.exports = { connect };
+module.exports =  {connect} ;
 
 
