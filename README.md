@@ -16,12 +16,15 @@ Este es un proyecto de backend desarrollado con Node.js, Express, bcrypt, JWT, h
 
 3. Crea un archivo .env en la raíz del proyecto y configura las variables de entorno necesarias. Aquí hay un ejemplo:
     
-    ```bash
-    PORT=3000
-    ```bash
-    DB_URL=mongodb://localhost:27017/desafio_db
-    ```bash
-    JWT_SECRET=mi_secreto
+   # DataBase Acces
+    DB_USER=
+    DB_PASSWORD=
+    DB_HOST=
+    DB_NAME=
+
+   # JWT
+    JWT_SECRET=
+
 
 ## Ejecución
 
