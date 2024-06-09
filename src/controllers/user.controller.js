@@ -3,15 +3,15 @@
  * Controladores para las funciones de users
  * -----------------------------------------------------------------
  */
-
 const userUseCase = require('../usecases/users.usecases');
 
 /**
  * -----------------------------------------------------------------
  * Controlador para crear usuarios
  * -----------------------------------------------------------------
+ * @param {Object} request - Objeto de solicitud de Express
+ * @param {Object} response - Objeto de respuesta de Express
  */
-
 const createUser = async (request, response) => {
     try {
         const userCreated = await userUseCase.create(request.body);
@@ -25,18 +25,19 @@ const createUser = async (request, response) => {
             error: error.message
         });
     }
-}
+};
 
 /**
  * -----------------------------------------------------------------
  * Controlador para buscar usuario por Id
  * -----------------------------------------------------------------
+ * @param {Object} request - Objeto de solicitud de Express
+ * @param {Object} response - Objeto de respuesta de Express
  */
-
 const userById = async (request, response) => {
     try {
         const { id } = request.params;
-        const user = await userUseCase.findById(id);
+        const user = await userUseCase.getById(id);
 
         if (!user) {
             response.status(404).json({
@@ -52,17 +53,15 @@ const userById = async (request, response) => {
         });
     } catch (error) {
         response.status(error.status || 500).json({
-            succes: false,
-            data: error.message
-        })
-
+            success: false,
+            error: error.message
+        });
     }
-}
+};
 
 /**
  * -----------------------------------------------------------------
  * Exportamos los controladores
  * -----------------------------------------------------------------
  */
-
 module.exports = { createUser, userById };

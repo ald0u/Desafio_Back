@@ -17,22 +17,22 @@ const auth = async (request, response, next) => {
     try {
         const authorization = request.headers.authorization;
 
-        if (!authorization) throw createError(401, 'token required');
+        if (!authorization) {
+            throw createError(401, 'token required')
+        }
 
-        const payload = jwt.verify(authorization);
+        const payload = jwt.verify(token);
 
-        const user = await usersUsecases.getById(payload.id);
+        payload.id = await kodersUsecases.getById(payload.id);
 
-        if (!user) throw createError(401, 'User not found');
-        
         request.user = user;
 
-        next();
     } catch (error) {
-        response.status(401).json({
-            success: false,
+        response.status(401);
+        response.json({
+            succes: false,
             error: error.message,
-        });
+        })
     }
 };
 
